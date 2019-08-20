@@ -1,14 +1,10 @@
 ﻿<#@ template language="C#" #>
-<#@ import namespace="Nm.Lib.Utils.Core.Extensions" #>
-<#@ import namespace="Nm.Module.CodeGenerator.Domain.Property" #>
+
+ <#@ import namespace="CodeGenerator.Domain.Property" #> 
+  <#@ import namespace=" Nm.Lib.Utils.Core.Extensions" #> 
+
 using System;
-using <#= _prefix #>.Lib.Data.Abstractions.Attributes;
-<# if(_baseEntityName=="_baseEntityName"||_baseEntityName.StartsWith("Entity<")){ #>
-using <#= _prefix #>.Lib.Data.Core.Entities;
-<#}else{ #>
-using <#= _prefix #>.Lib.Data.Core.Entities.Extend;
-<#} #>
-using System.ComponentModel.DataAnnotations.Schema;
+using Temii.Core.Attributes;
 using Temii.Core.EntityBase;
 
 namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Domain.<#= _class.Name #>
@@ -17,7 +13,7 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Domain.<#= _class.Nam
     /// <#= _class.Remarks #>
     /// </summary>
     [Table("<#= _class.TableName #>")]
-    public partial class <#= _class.Name #>Entity : <#= _baseEntityName #>
+    public partial class <#= _class.Name #>Entity :  BaseEntity
     {
 <#  foreach(var p in _propertyList){ if(p.IsInherit) continue;#>
         /// <summary>

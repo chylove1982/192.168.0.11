@@ -9,11 +9,13 @@
 // ------------------------------------------------------------------------------
 namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4
 {
+    using System;
+    
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\Solution.tt"
+    #line 1 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\Solution.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class Solution : SolutionBase
     {
@@ -34,51 +36,49 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4
                     "}\") = \"Library\", \"Library\", \"{E58182FC-0950-453F-8C3A-ABCB477C8A28}\"\r\nEndProject" +
                     "\r\nProject(\"{9A19103F-16F7-4668-BE54-9A1E7A4F7556}\") = \"Domain\", \"src\\Library\\Dom" +
                     "ain\\Domain.csproj\", \"{851F1CBB-A081-40C7-844F-842E0FAE0DF0}\"\r\nEndProject\r\nProjec" +
-                    "t(\"{9A19103F-16F7-4668-BE54-9A1E7A4F7556}\") = \"Infrastructure\", \"src\\Library\\Inf" +
-                    "rastructure\\Infrastructure.csproj\", \"{2277E74A-AE69-4392-A173-8ED4BD6EB11E}\"\r\nEn" +
-                    "dProject\r\nProject(\"{9A19103F-16F7-4668-BE54-9A1E7A4F7556}\") = \"Web\", \"src\\Web\\We" +
-                    "b.csproj\", \"{C2D01E40-4038-4527-9AAF-323359CD5CF0}\"\r\nEndProject\r\nProject(\"{9A191" +
-                    "03F-16F7-4668-BE54-9A1E7A4F7556}\") = \"WebHost\", \"src\\WebHost\\WebHost.csproj\", \"{" +
-                    "CEAE0B43-438D-4778-BF3A-8665246EF718}\"\r\nEndProject\r\nProject(\"{9A19103F-16F7-4668" +
-                    "-BE54-9A1E7A4F7556}\") = \"Application\", \"src\\Library\\Application\\Application.cspr" +
-                    "oj\", \"{792B8CBF-AB02-4A87-AB5E-A6CB8E9DE39C}\"\r\nEndProject\r\nProject(\"{2150E333-8F" +
-                    "DC-42A3-9474-1A3956D46DE8}\") = \"Solution Items\", \"Solution Items\", \"{9BD68FC4-FD" +
-                    "B1-42F6-892A-0E752711A5BF}\"\r\n\tProjectSection(SolutionItems) = preProject\r\n\t\tREAD" +
-                    "ME.md = README.md\r\n\tEndProjectSection\r\nEndProject\r\nGlobal\r\n\tGlobalSection(Soluti" +
-                    "onConfigurationPlatforms) = preSolution\r\n\t\tDebug|Any CPU = Debug|Any CPU\r\n\t\tRele" +
-                    "ase|Any CPU = Release|Any CPU\r\n\tEndGlobalSection\r\n\tGlobalSection(ProjectConfigur" +
-                    "ationPlatforms) = postSolution\r\n\t\t{851F1CBB-A081-40C7-844F-842E0FAE0DF0}.Debug|A" +
-                    "ny CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{851F1CBB-A081-40C7-844F-842E0FAE0DF0}.Debug" +
-                    "|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{851F1CBB-A081-40C7-844F-842E0FAE0DF0}.Relea" +
-                    "se|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{851F1CBB-A081-40C7-844F-842E0FAE0DF0}" +
-                    ".Release|Any CPU.Build.0 = Release|Any CPU\r\n\t\t{2277E74A-AE69-4392-A173-8ED4BD6EB" +
-                    "11E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{2277E74A-AE69-4392-A173-8ED4BD6" +
-                    "EB11E}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{2277E74A-AE69-4392-A173-8ED4BD6" +
-                    "EB11E}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{2277E74A-AE69-4392-A173-8" +
-                    "ED4BD6EB11E}.Release|Any CPU.Build.0 = Release|Any CPU\r\n\t\t{C2D01E40-4038-4527-9A" +
-                    "AF-323359CD5CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{C2D01E40-4038-4527-" +
-                    "9AAF-323359CD5CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{C2D01E40-4038-4527-" +
-                    "9AAF-323359CD5CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{C2D01E40-4038" +
-                    "-4527-9AAF-323359CD5CF0}.Release|Any CPU.Build.0 = Release|Any CPU\r\n\t\t{CEAE0B43-" +
-                    "438D-4778-BF3A-8665246EF718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{CEAE0B4" +
-                    "3-438D-4778-BF3A-8665246EF718}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{CEAE0B4" +
-                    "3-438D-4778-BF3A-8665246EF718}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{C" +
-                    "EAE0B43-438D-4778-BF3A-8665246EF718}.Release|Any CPU.Build.0 = Release|Any CPU\r\n" +
-                    "\t\t{792B8CBF-AB02-4A87-AB5E-A6CB8E9DE39C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU" +
-                    "\r\n\t\t{792B8CBF-AB02-4A87-AB5E-A6CB8E9DE39C}.Debug|Any CPU.Build.0 = Debug|Any CPU" +
-                    "\r\n\t\t{792B8CBF-AB02-4A87-AB5E-A6CB8E9DE39C}.Release|Any CPU.ActiveCfg = Release|A" +
-                    "ny CPU\r\n\t\t{792B8CBF-AB02-4A87-AB5E-A6CB8E9DE39C}.Release|Any CPU.Build.0 = Relea" +
-                    "se|Any CPU\r\n\tEndGlobalSection\r\n\tGlobalSection(SolutionProperties) = preSolution\r" +
-                    "\n\t\tHideSolutionNode = FALSE\r\n\tEndGlobalSection\r\n\tGlobalSection(NestedProjects) =" +
-                    " preSolution\r\n\t\t{E58182FC-0950-453F-8C3A-ABCB477C8A28} = {B4D3AF99-D551-4B7A-82F" +
-                    "3-CE0950FCAA08}\r\n\t\t{851F1CBB-A081-40C7-844F-842E0FAE0DF0} = {E58182FC-0950-453F-" +
-                    "8C3A-ABCB477C8A28}\r\n\t\t{2277E74A-AE69-4392-A173-8ED4BD6EB11E} = {E58182FC-0950-45" +
-                    "3F-8C3A-ABCB477C8A28}\r\n\t\t{C2D01E40-4038-4527-9AAF-323359CD5CF0} = {B4D3AF99-D551" +
-                    "-4B7A-82F3-CE0950FCAA08}\r\n\t\t{CEAE0B43-438D-4778-BF3A-8665246EF718} = {B4D3AF99-D" +
-                    "551-4B7A-82F3-CE0950FCAA08}\r\n\t\t{792B8CBF-AB02-4A87-AB5E-A6CB8E9DE39C} = {E58182F" +
-                    "C-0950-453F-8C3A-ABCB477C8A28}\r\n\tEndGlobalSection\r\n\tGlobalSection(ExtensibilityG" +
-                    "lobals) = postSolution\r\n\t\tSolutionGuid = {1A6F430A-4015-48B1-BD5B-32C30485B34D}\r" +
-                    "\n\tEndGlobalSection\r\nEndGlobal\r\n\r\n");
+                    "t(\"{9A19103F-16F7-4668-BE54-9A1E7A4F7556}\") = \"Web\", \"src\\Web\\Web.csproj\", \"{C2D" +
+                    "01E40-4038-4527-9AAF-323359CD5CF0}\"\r\nEndProject\r\nProject(\"{9A19103F-16F7-4668-BE" +
+                    "54-9A1E7A4F7556}\") = \"WebHost\", \"src\\WebHost\\WebHost.csproj\", \"{CEAE0B43-438D-47" +
+                    "78-BF3A-8665246EF718}\"\r\nEndProject\r\nProject(\"{9A19103F-16F7-4668-BE54-9A1E7A4F75" +
+                    "56}\") = \"Application\", \"src\\Library\\Application\\Application.csproj\", \"{792B8CBF-" +
+                    "AB02-4A87-AB5E-A6CB8E9DE39C}\"\r\nEndProject\r\nProject(\"{2150E333-8FDC-42A3-9474-1A3" +
+                    "956D46DE8}\") = \"Solution Items\", \"Solution Items\", \"{9BD68FC4-FDB1-42F6-892A-0E7" +
+                    "52711A5BF}\"\r\n\tProjectSection(SolutionItems) = preProject\r\n\t\tREADME.md = README.m" +
+                    "d\r\n\tEndProjectSection\r\nEndProject\r\nGlobal\r\n\tGlobalSection(SolutionConfigurationP" +
+                    "latforms) = preSolution\r\n\t\tDebug|Any CPU = Debug|Any CPU\r\n\t\tRelease|Any CPU = Re" +
+                    "lease|Any CPU\r\n\tEndGlobalSection\r\n\tGlobalSection(ProjectConfigurationPlatforms) " +
+                    "= postSolution\r\n\t\t{851F1CBB-A081-40C7-844F-842E0FAE0DF0}.Debug|Any CPU.ActiveCfg" +
+                    " = Debug|Any CPU\r\n\t\t{851F1CBB-A081-40C7-844F-842E0FAE0DF0}.Debug|Any CPU.Build.0" +
+                    " = Debug|Any CPU\r\n\t\t{851F1CBB-A081-40C7-844F-842E0FAE0DF0}.Release|Any CPU.Activ" +
+                    "eCfg = Release|Any CPU\r\n\t\t{851F1CBB-A081-40C7-844F-842E0FAE0DF0}.Release|Any CPU" +
+                    ".Build.0 = Release|Any CPU\r\n\t\t{2277E74A-AE69-4392-A173-8ED4BD6EB11E}.Debug|Any C" +
+                    "PU.ActiveCfg = Debug|Any CPU\r\n\t\t{2277E74A-AE69-4392-A173-8ED4BD6EB11E}.Debug|Any" +
+                    " CPU.Build.0 = Debug|Any CPU\r\n\t\t{2277E74A-AE69-4392-A173-8ED4BD6EB11E}.Release|A" +
+                    "ny CPU.ActiveCfg = Release|Any CPU\r\n\t\t{2277E74A-AE69-4392-A173-8ED4BD6EB11E}.Rel" +
+                    "ease|Any CPU.Build.0 = Release|Any CPU\r\n\t\t{C2D01E40-4038-4527-9AAF-323359CD5CF0}" +
+                    ".Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{C2D01E40-4038-4527-9AAF-323359CD5CF" +
+                    "0}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{C2D01E40-4038-4527-9AAF-323359CD5CF" +
+                    "0}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{C2D01E40-4038-4527-9AAF-32335" +
+                    "9CD5CF0}.Release|Any CPU.Build.0 = Release|Any CPU\r\n\t\t{CEAE0B43-438D-4778-BF3A-8" +
+                    "665246EF718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{CEAE0B43-438D-4778-BF3A" +
+                    "-8665246EF718}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{CEAE0B43-438D-4778-BF3A" +
+                    "-8665246EF718}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{CEAE0B43-438D-477" +
+                    "8-BF3A-8665246EF718}.Release|Any CPU.Build.0 = Release|Any CPU\r\n\t\t{792B8CBF-AB02" +
+                    "-4A87-AB5E-A6CB8E9DE39C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{792B8CBF-AB" +
+                    "02-4A87-AB5E-A6CB8E9DE39C}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{792B8CBF-AB" +
+                    "02-4A87-AB5E-A6CB8E9DE39C}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{792B8" +
+                    "CBF-AB02-4A87-AB5E-A6CB8E9DE39C}.Release|Any CPU.Build.0 = Release|Any CPU\r\n\tEnd" +
+                    "GlobalSection\r\n\tGlobalSection(SolutionProperties) = preSolution\r\n\t\tHideSolutionN" +
+                    "ode = FALSE\r\n\tEndGlobalSection\r\n\tGlobalSection(NestedProjects) = preSolution\r\n\t\t" +
+                    "{E58182FC-0950-453F-8C3A-ABCB477C8A28} = {B4D3AF99-D551-4B7A-82F3-CE0950FCAA08}\r" +
+                    "\n\t\t{851F1CBB-A081-40C7-844F-842E0FAE0DF0} = {E58182FC-0950-453F-8C3A-ABCB477C8A2" +
+                    "8}\r\n\t\t{2277E74A-AE69-4392-A173-8ED4BD6EB11E} = {E58182FC-0950-453F-8C3A-ABCB477C" +
+                    "8A28}\r\n\t\t{C2D01E40-4038-4527-9AAF-323359CD5CF0} = {B4D3AF99-D551-4B7A-82F3-CE095" +
+                    "0FCAA08}\r\n\t\t{CEAE0B43-438D-4778-BF3A-8665246EF718} = {B4D3AF99-D551-4B7A-82F3-CE" +
+                    "0950FCAA08}\r\n\t\t{792B8CBF-AB02-4A87-AB5E-A6CB8E9DE39C} = {E58182FC-0950-453F-8C3A" +
+                    "-ABCB477C8A28}\r\n\tEndGlobalSection\r\n\tGlobalSection(ExtensibilityGlobals) = postSo" +
+                    "lution\r\n\t\tSolutionGuid = {1A6F430A-4015-48B1-BD5B-32C30485B34D}\r\n\tEndGlobalSecti" +
+                    "on\r\nEndGlobal\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

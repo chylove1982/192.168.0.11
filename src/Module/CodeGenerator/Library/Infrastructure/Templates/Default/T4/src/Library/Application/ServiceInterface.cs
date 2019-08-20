@@ -96,7 +96,7 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
             
             #line default
             #line hidden
-            this.Write("服务\r\n    /// </summary>\r\n    public interface I");
+            this.Write("服务接口\r\n    /// </summary>\r\n    public interface I");
             
             #line 14 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceInterface.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_class.Name));
@@ -111,8 +111,14 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
             #line default
             #line hidden
             this.Write("        /// <summary>\r\n        /// 查询\r\n        /// </summary>\r\n        /// <param" +
-                    " name=\"model\"></param>\r\n        /// <returns></returns>\r\n        Task<IResultMod" +
-                    "el> Query(");
+                    " name=\"model\"></param>\r\n        /// <returns>数据列表 List_");
+            
+            #line 21 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceInterface.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(_class.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Entity </returns>\r\n        Task<IResultModel> Query(");
             
             #line 22 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceInterface.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_class.Name));
@@ -132,9 +138,9 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
             
             #line default
             #line hidden
-            this.Write("        /// <summary>\r\n        /// 创建\r\n        /// </summary>\r\n        /// <param" +
-                    " name=\"model\"></param>\r\n        /// <returns></returns>\r\n        Task<IResultMod" +
-                    "el> Add(");
+            this.Write("        /// <summary>\r\n        /// 新增接口\r\n        /// </summary>\r\n        /// <par" +
+                    "am name=\"model\"></param>\r\n        /// <returns>返回成功失败</returns>\r\n        Task<IR" +
+                    "esultModel> Add(");
             
             #line 31 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceInterface.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_class.Name));
@@ -154,16 +160,9 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
             
             #line default
             #line hidden
-            this.Write("        /// <summary>\r\n        /// 删除\r\n        /// </summary>\r\n        /// <param" +
-                    " name=\"id\">编号</param>\r\n        /// <returns></returns>\r\n        Task<IResultMode" +
-                    "l> Delete(");
-            
-            #line 40 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceInterface.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_class.PrimaryKeyTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" id);\r\n\r\n");
+            this.Write("        /// <summary>\r\n        /// 删除接口\r\n        /// </summary>\r\n        /// <par" +
+                    "am name=\"id\">编号</param>\r\n        /// <returns>返回成功失败</returns>\r\n        Task<IRe" +
+                    "sultModel> Delete(string id);\r\n\r\n");
             
             #line 42 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceInterface.tt"
 } 
@@ -176,18 +175,18 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
             
             #line default
             #line hidden
-            this.Write("        /// <summary>\r\n        /// 编辑\r\n        /// </summary>\r\n        /// <param" +
-                    " name=\"id\"></param>\r\n        /// <returns></returns>\r\n        Task<IResultModel>" +
-                    " Edit(");
+            this.Write("        /// <summary>\r\n        ///  编辑_查看单条详情\r\n        /// </summary>\r\n        //" +
+                    "/ <param name=\"id\"></param>\r\n        /// <returns>返回单条实体 ");
             
-            #line 49 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceInterface.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_class.PrimaryKeyTypeName));
+            #line 48 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceInterface.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(_class.Name));
             
             #line default
             #line hidden
-            this.Write(" id);\r\n\r\n        /// <summary>\r\n        /// 修改\r\n        /// </summary>\r\n        /" +
-                    "// <param name=\"model\"></param>\r\n        /// <returns></returns>\r\n        Task<I" +
-                    "ResultModel> Update(");
+            this.Write("Entity </returns>\r\n        Task<IResultModel> Edit(string id);\r\n\r\n        /// <su" +
+                    "mmary>\r\n        /// 修改接口\r\n        /// </summary>\r\n        /// <param name=\"model" +
+                    "\"></param>\r\n        /// <returns>返回成功失败</returns>\r\n        Task<IResultModel> Up" +
+                    "date(");
             
             #line 56 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceInterface.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_class.Name));

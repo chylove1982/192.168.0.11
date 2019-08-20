@@ -7,6 +7,7 @@ using Temii.ControllerCore;
 using Temii.Core.Attributes;
 using Temii.ModelCore;
 using Temii.ModelCore.EntityBase;
+using System.Threading.Tasks;
 using <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _class.Name #>Service;
 using <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _class.Name #>Service.ViewModels;
 using <#= _prefix #>.Module.<#= _model.Project.Code #>.Domain.<#= _class.Name #>.Models;
@@ -14,7 +15,7 @@ using <#= _prefix #>.Module.<#= _model.Project.Code #>.Domain.<#= _class.Name #>
 namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Web.Controllers
 {
     [Description("<#= _class.Remarks #>管理")]
-    public class <#= _class.Name #>Controller : ModuleController
+    public class <#= _class.Name #>Controller : TemiiBase
     {
         private readonly I<#= _class.Name #>Service _service;
 
@@ -44,7 +45,7 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Web.Controllers
 <# if(_class.Method.Delete) {#>
         [HttpDelete]
         [Description("删除")]
-        public Task<IResultModel> Delete([BindRequired]<#= _class.PrimaryKeyTypeName #> id)
+        public Task<IResultModel> Delete([BindRequired]string id)
         {
             return _service.Delete(id);
         }
@@ -53,7 +54,7 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Web.Controllers
 <# if(_class.Method.Edit) {#>
         [HttpGet]
         [Description("编辑")]
-        public Task<IResultModel> Edit([BindRequired]<#= _class.PrimaryKeyTypeName #> id)
+        public Task<IResultModel> Edit([BindRequired]string id)
         {
             return _service.Edit(id);
         }

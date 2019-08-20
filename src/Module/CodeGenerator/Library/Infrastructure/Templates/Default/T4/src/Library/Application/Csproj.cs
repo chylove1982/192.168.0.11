@@ -32,11 +32,11 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include=""Temii.Extentions"" Version=""1.0.0"" />
+    <PackageReference Include=""Temii.Extentions"" Version=""1.1.6"" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include=""..\Infrastructure\Infrastructure.csproj"" />
+  <ProjectReference Include=""..\Domain\Domain.csproj"" />
   </ItemGroup>
 
 </Project>

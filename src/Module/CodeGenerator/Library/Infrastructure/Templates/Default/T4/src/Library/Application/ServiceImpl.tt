@@ -11,18 +11,27 @@ using <#= _prefix #>.Module.<#= _model.Project.Code #>.Domain.<#= _class.Name #>
 
 namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _class.Name #>Service
 {
-    public class <#= _class.Name #>Service : BaseBLL<<#= _class.Name #>>, I<#= _class.Name #>Service
+    /// <summary>
+    /// <#= _class.Remarks #>服务
+    /// </summary>
+
+    public class <#= _class.Name #>Service : BaseBLL<<#= _class.Name #>Entity>, I<#= _class.Name #>Service
     {
       
 
 <# if(_class.Method.Query) {#>
+		/// <summary>
+        /// 查询
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>返回数据列表 List_<#= _class.Name #>Entity </returns>
         public async Task<IResultModel> Query(<#= _class.Name #>QueryModel model)
         {
             var PageSize = model.Paging.Size<=0?30:model.Paging.Size;
             var PageIndex = model.Paging.Index <= 1 ? 1 : model.Paging.Index;
-             var result = new QueryResultModel<<#= _class.Name #>>
+             var result = new QueryResultModel<<#= _class.Name #>Entity>
             {
-                Rows = GetPageByContains(PageIndex, PageSize, out int Total, p=>p.Name==model.Name),
+                Rows = GetPageByContains(PageIndex, PageSize, out int Total, p=>p.ID!="条件"),
                 PageCount = (Total + PageSize - 1) / PageSize,
                 TotalCount = Total
             };
@@ -31,6 +40,11 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _clas
 
 <#} #>
 <# if(_class.Method.Add) {#>
+        /// <summary>
+        /// 新增服务
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>返回成功失败</returns>
         public async Task<IResultModel> Add(<#= _class.Name #>AddModel model)
         {
             var entity = new <#= _class.Name #>Entity();
@@ -40,7 +54,12 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _clas
 
 <#} #>
 <# if(_class.Method.Delete) {#>
-        public async Task<IResultModel> Delete(<#= _class.PrimaryKeyTypeName #> id)
+		/// <summary>
+        /// 删除服务
+        /// </summary>
+        /// <param name="id">编号</param>
+        /// <returns>返回成功失败</returns>
+        public async Task<IResultModel> Delete(string id)
         {
             var result = RemoveByKey(id);
             return ResultModel.Result(result);
@@ -48,21 +67,30 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _clas
 
 <#} #>
 <# if(_class.Method.Edit) {#>
-        public async Task<IResultModel> Edit(<#= _class.PrimaryKeyTypeName #> id)
+		/// <summary>
+        /// 编辑_查看单条详情
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>返回实体 <#= _class.Name #>Entity </returns>
+        public async Task<IResultModel> Edit(string id)
         {
             var entity = GetModeleByKey(id);
             if (entity == null)
                 return ResultModel.NotExists;
 
           
-            return ResultModel.Success(model);
+            return ResultModel.Success(entity);
         }
-
+		/// <summary>
+        /// 修改服务
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>返回成功失败</returns>
         public async Task<IResultModel> Update(<#= _class.Name #>UpdateModel model)
         {
 		    <#= _class.Name #>Entity entity = new <#= _class.Name #>Entity();
             model.CopyTo(entity);
-            var result = Update(Enum);
+            var result = Update(entity);
             return ResultModel.Result(result);
         }
 <#} #>

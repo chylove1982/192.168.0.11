@@ -2,7 +2,7 @@
 <#@ import namespace="System.Linq" #>
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
-using Temii.Core.EntityBase;
+
 
 namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Domain.<#= _class.Name #>
 {

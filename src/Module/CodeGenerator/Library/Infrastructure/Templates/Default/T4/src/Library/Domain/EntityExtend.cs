@@ -27,7 +27,7 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
         public virtual string TransformText()
         {
             this.Write("using System.ComponentModel;\r\nusing System.ComponentModel.DataAnnotations.Schema;" +
-                    "\r\nusing Temii.Core.EntityBase;\r\n\r\nnamespace ");
+                    "\r\n\r\n\r\nnamespace ");
             
             #line 7 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityExtend.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_prefix));

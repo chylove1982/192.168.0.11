@@ -7,6 +7,18 @@
   <Import Project="..\..\..\..\..\build\module.build.targets" />
 
   <ItemGroup>
+    <Compile Remove="Templates\Default\T4\src\Web\ModuleController.cs" />
+    <Compile Remove="Templates\Default\T4\src\Web\ModuleController.Extend.cs" />
+    <Compile Remove="Templates\Default\T4\src\Web\ModuleInitializer.cs" />
+    <Compile Remove="Templates\Default\T4\src\Web\ModuleInitializer.Extend.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Templates\Default\T4\src\Web\ModuleController.tt" />
+    <None Remove="Templates\Default\T4\src\Web\ModuleInitializer.tt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.CodeDom" Version="4.5.0" />
   </ItemGroup>
 
@@ -191,14 +203,6 @@
     <None Update="Templates\Default\T4\src\Web\Csproj.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Csproj.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Default\T4\src\Web\ModuleController.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ModuleController.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Default\T4\src\Web\ModuleInitializer.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ModuleInitializer.cs</LastGenOutput>
     </None>
     <None Update="Templates\Default\T4\src\Web\Controllers\Controller.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -622,6 +626,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Update="Templates\Default\T4\Solution.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Solution.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\Default\T4\src\Library\Application\Csproj.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -716,6 +725,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Page.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\WebHost\Csproj.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Csproj.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\Default\T4\src\Web\Controllers\Controller.cs">
       <DesignTime>True</DesignTime>
