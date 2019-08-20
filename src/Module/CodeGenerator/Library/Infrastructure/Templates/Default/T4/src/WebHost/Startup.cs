@@ -60,7 +60,7 @@ namespace ");
     /// <param name=""configuration""></param>
         public Startup(IConfiguration configuration)
         {
-            CommonKey.MSSQLConnectionString = ""Data Source=120.25.58.136;Initial Catalog=NetCoreDBtest;User ID=sa;Password=saSyslive;"";
+            CommonKey.MSSQLConnectionString = ""Data Source=127.0.0.1;Initial Catalog=NetCoreDBtest;User ID=sa;Password=test;"";
             CommonKey.SSOURL = ""http://192.168.1.107:16000/ssoapi/SPD"";
             Configuration = configuration;
         }
