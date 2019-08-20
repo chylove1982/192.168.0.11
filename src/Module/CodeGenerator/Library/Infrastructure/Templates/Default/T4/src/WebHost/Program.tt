@@ -1,13 +1,17 @@
 ﻿<#@ template language="C#" #>
-using <#= _prefix #>.Lib.Host.Web;
-
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore;
 namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.WebHost
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            new HostBuilder().Run<Startup>(args);
+            CreateWebHostBuilder(args).Build().Run();
         }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            Microsoft.AspNetCore.WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>();
     }
 }

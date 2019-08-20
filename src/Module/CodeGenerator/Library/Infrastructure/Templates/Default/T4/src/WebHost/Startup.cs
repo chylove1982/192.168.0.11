@@ -9,11 +9,13 @@
 // ------------------------------------------------------------------------------
 namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.WebHost
 {
+    using System;
+    
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\WebHost\Startup.tt"
+    #line 1 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\WebHost\Startup.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class Startup : StartupBase
     {
@@ -23,29 +25,95 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.WebHos
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Microsoft.AspNetCore.Hosting;\r\nusing ");
+            this.Write(@"using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using Temii.ControllerCore.AttributeExtentions;
+
+namespace ");
             
-            #line 3 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\WebHost\Startup.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_prefix));
-            
-            #line default
-            #line hidden
-            this.Write(".Lib.Host.Web;\r\n\r\nnamespace ");
-            
-            #line 5 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\WebHost\Startup.tt"
+            #line 10 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\WebHost\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_prefix));
             
             #line default
             #line hidden
             this.Write(".Module.");
             
-            #line 5 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\WebHost\Startup.tt"
+            #line 10 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\WebHost\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_model.Project.Code));
             
             #line default
             #line hidden
-            this.Write(".WebHost\r\n{\r\n    public class Startup : StartupAbstract\r\n    {\r\n        public St" +
-                    "artup(IHostingEnvironment env) : base(env)\r\n        {\r\n        }\r\n    }\r\n}\r\n");
+            this.Write(@".WebHost
+{
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Startup
+    {/// <summary>
+    /// 
+    /// </summary>
+    /// <param name=""configuration""></param>
+        public Startup(IConfiguration configuration)
+        {
+            CommonKey.MSSQLConnectionString = ""Data Source=120.25.58.136;Initial Catalog=NetCoreDBtest;User ID=sa;Password=saSyslive;"";
+            CommonKey.SSOURL = ""http://192.168.1.107:16000/ssoapi/SPD"";
+            Configuration = configuration;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public IConfiguration Configuration { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name=""services""></param>
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            //注册Swagger生成器,定义一个和多个Swagger 文档
+            services.AddSPDConfig();
+            services.AddApplicationServices(""");
+            
+            #line 41 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\WebHost\Startup.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(_model.Project.Code));
+            
+            #line default
+            #line hidden
+            this.Write(@".Application"");
+            services.AddMvc(options =>
+            {
+                options.Filters.Add<ApiExceptionFilter>();
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            //启用中间件服务生成Swagger作为JSON终结点
+            app.UseSwagger();
+            //启用中间件服务对swagger-ui,指定Swagger JSON终结点
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint(""/swagger/v1/swagger.json"", ""Temii API"");
+            });
+           // app.UseException();
+          //app.UseRequestAuth();
+            app.UseCors(""cors"");
+            app.UseMvc();
+        }
+    }
+}
+");
             return this.GenerationEnvironment.ToString();
         }
     }

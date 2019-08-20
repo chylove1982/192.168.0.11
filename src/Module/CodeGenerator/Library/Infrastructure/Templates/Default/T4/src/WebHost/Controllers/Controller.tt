@@ -12,20 +12,32 @@ using <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _class.Na
 using <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _class.Name #>Service.ViewModels;
 using <#= _prefix #>.Module.<#= _model.Project.Code #>.Domain.<#= _class.Name #>.Models;
 
-namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Web.Controllers
+
+namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Web.Controllersoy
 {
-    [Description("<#= _class.Remarks #>管理")]
+    /// <summary>
+    /// <#= _class.Remarks #>管理
+    /// </summary>
+    [Description("管理")]
     public class <#= _class.Name #>Controller : TemiiBase
     {
+	    /// <summary>
+        /// "<#= _class.Remarks #>注入服务接口变量"
+        /// </summary>
         private readonly I<#= _class.Name #>Service _service;
-
+	    /// <summary>
+        /// "<#= _class.Remarks #>注入服务接口"
+        /// </summary>
         public <#= _class.Name #>Controller(I<#= _class.Name #>Service service)
         {
             _service = service;
         }
 
 <# if(_class.Method.Query) {#>
-        [HttpGet]
+	    /// <summary>
+        /// "<#= _class.Remarks #>查询"
+        /// </summary>
+        [HttpPost]
         [Description("查询")]
         public Task<IResultModel> Query([FromQuery]<#= _class.Name #>QueryModel model)
         {
@@ -34,6 +46,9 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Web.Controllers
 
 <#} #>
 <# if(_class.Method.Add) {#>
+	    /// <summary>
+        /// "<#= _class.Remarks #>添加"
+        /// </summary>
         [HttpPost]
         [Description("添加")]
         public Task<IResultModel> Add(<#= _class.Name #>AddModel model)
@@ -43,6 +58,9 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Web.Controllers
 
 <#} #>
 <# if(_class.Method.Delete) {#>
+	    /// <summary>
+        /// "<#= _class.Remarks #>删除"
+        /// </summary>
         [HttpDelete]
         [Description("删除")]
         public Task<IResultModel> Delete([BindRequired]string id)
@@ -52,12 +70,18 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Web.Controllers
 
 <#} #>
 <# if(_class.Method.Edit) {#>
+	    /// <summary>
+        /// "<#= _class.Remarks #>获取详情"
+        /// </summary>
         [HttpGet]
         [Description("编辑")]
         public Task<IResultModel> Edit([BindRequired]string id)
         {
             return _service.Edit(id);
         }
+	    /// <summary>
+        /// "<#= _class.Remarks #>修改"
+        /// </summary>
 
         [HttpPost]
         [Description("修改")]

@@ -9,11 +9,13 @@
 // ------------------------------------------------------------------------------
 namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.WebHost
 {
+    using System;
+    
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\WebHost\appsettings.tt"
+    #line 1 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\WebHost\appsettings.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class appsettings : appsettingsBase
     {
@@ -23,7 +25,8 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.WebHos
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("{\r\n  \r\n}\r\n");
+            this.Write("{\r\n  \"Logging\": {\r\n    \"LogLevel\": {\r\n      \"Default\": \"Warning\"\r\n    }\r\n  },\r\n  " +
+                    "\"AllowedHosts\": \"*\"\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

@@ -2,15 +2,15 @@
 using System.Linq;
 using Nm.Module.CodeGenerator.Infrastructure.Templates.Models;
 
-namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Web.Controllers
+namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.WebHost.Controllers
 {
-    public partial class Controller : ITemplateHandler
+    public partial class Controller  :ITemplateHandler
     {
         private readonly TemplateBuildModel _model;
         private readonly string _prefix;
         private ClassBuildModel _class;
 
-        public Controller(TemplateBuildModel model)
+        public Controller (TemplateBuildModel model)
         {
             _model = model;
             _prefix = model.Project.Prefix;
@@ -18,7 +18,7 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Web.Co
 
         public void Save()
         {
-            var dir = Path.Combine(_model.RootPath, _model.Project.Code, "src/Web/Controllers");
+            var dir = Path.Combine(_model.RootPath, _model.Project.Code, "src/WebHost/Controllers");
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
 

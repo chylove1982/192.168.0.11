@@ -1,13 +1,68 @@
 ﻿<#@ template language="C#" #>
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using <#= _prefix #>.Lib.Host.Web;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using Temii.ControllerCore.AttributeExtentions;
 
 namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.WebHost
 {
-    public class Startup : StartupAbstract
-    {
-        public Startup(IHostingEnvironment env) : base(env)
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Startup
+    {/// <summary>
+    /// 
+    /// </summary>
+    /// <param name="configuration"></param>
+        public Startup(IConfiguration configuration)
         {
+            CommonKey.MSSQLConnectionString = "Data Source=120.25.58.136;Initial Catalog=NetCoreDBtest;User ID=sa;Password=saSyslive;";
+            CommonKey.SSOURL = "http://192.168.1.107:16000/ssoapi/SPD";
+            Configuration = configuration;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public IConfiguration Configuration { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="services"></param>
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            //注册Swagger生成器,定义一个和多个Swagger 文档
+            services.AddSPDConfig();
+            services.AddApplicationServices("<#= _model.Project.Code #>.Application");
+            services.AddMvc(options =>
+            {
+                options.Filters.Add<ApiExceptionFilter>();
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            //启用中间件服务生成Swagger作为JSON终结点
+            app.UseSwagger();
+            //启用中间件服务对swagger-ui,指定Swagger JSON终结点
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Temii API");
+            });
+           // app.UseException();
+          //app.UseRequestAuth();
+            app.UseCors("cors");
+            app.UseMvc();
         }
     }
 }
