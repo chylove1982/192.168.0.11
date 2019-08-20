@@ -9,11 +9,13 @@
 // ------------------------------------------------------------------------------
 namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Library.Application
 {
+    using System;
+    
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\Csproj.tt"
+    #line 1 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\Csproj.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class Csproj : CsprojBase
     {
@@ -23,25 +25,22 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup>\r\n    <TargetFramework>nets" +
-                    "tandard2.0</TargetFramework>\r\n  </PropertyGroup>\r\n\r\n  <ItemGroup>\r\n    <PackageR" +
-                    "eference Include=\"");
-            
-            #line 9 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\Csproj.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_prefix));
-            
-            #line default
-            #line hidden
-            this.Write(".Lib.Data.Query\" Version=\"1.0.0\" />\r\n    <PackageReference Include=\"");
-            
-            #line 10 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\Csproj.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_prefix));
-            
-            #line default
-            #line hidden
-            this.Write(".Lib.Mapper.AutoMapper\" Version=\"1.0.0\" />\r\n  </ItemGroup>\r\n\r\n  <ItemGroup>\r\n    " +
-                    "<ProjectReference Include=\"..\\Infrastructure\\Infrastructure.csproj\" />\r\n  </Item" +
-                    "Group>\r\n\r\n</Project>\r\n");
+            this.Write(@"<Project Sdk=""Microsoft.NET.Sdk"">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include=""Temii.Extentions"" Version=""1.0.0"" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include=""..\Infrastructure\Infrastructure.csproj"" />
+  </ItemGroup>
+
+</Project>
+");
             return this.GenerationEnvironment.ToString();
         }
     }

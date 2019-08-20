@@ -2,31 +2,29 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
-using <#= _prefix #>.Lib.Utils.Core.Result;
+using Temii.Extentions;
+using Temii.ModelCore;
+using Temii.ModelCore.EntityBase;
 using <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _class.Name #>Service.ViewModels;
 using <#= _prefix #>.Module.<#= _model.Project.Code #>.Domain.<#= _class.Name #>;
 using <#= _prefix #>.Module.<#= _model.Project.Code #>.Domain.<#= _class.Name #>.Models;
 
 namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _class.Name #>Service
 {
-    public class <#= _class.Name #>Service : I<#= _class.Name #>Service
+    public class <#= _class.Name #>Service : BaseBLL<<#= _class.Name #>>, I<#= _class.Name #>Service
     {
-        private readonly IMapper _mapper;
-        private readonly I<#= _class.Name #>Repository _repository;
-        public <#= _class.Name #>Service(IMapper mapper, I<#= _class.Name #>Repository repository)
-        {
-            _mapper = mapper;
-            _repository = repository;
-        }
+      
 
 <# if(_class.Method.Query) {#>
         public async Task<IResultModel> Query(<#= _class.Name #>QueryModel model)
         {
-            var result = new QueryResultModel<<#= _class.Name #>Entity>
+            var PageSize = model.Paging.Size<=0?30:model.Paging.Size;
+            var PageIndex = model.Paging.Index <= 1 ? 1 : model.Paging.Index;
+             var result = new QueryResultModel<<#= _class.Name #>>
             {
-                Rows = await _repository.Query(model),
-                Total = model.TotalCount
+                Rows = GetPageByContains(PageIndex, PageSize, out int Total, p=>p.Name==model.Name),
+                PageCount = (Total + PageSize - 1) / PageSize,
+                TotalCount = Total
             };
             return ResultModel.Success(result);
         }
@@ -35,13 +33,8 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _clas
 <# if(_class.Method.Add) {#>
         public async Task<IResultModel> Add(<#= _class.Name #>AddModel model)
         {
-            var entity = _mapper.Map<<#= _class.Name #>Entity>(model);
-            //if (await _repository.Exists(entity))
-            //{
-                //return ResultModel.HasExists;
-            //}
-
-            var result = await _repository.AddAsync(entity);
+            var entity = new <#= _class.Name #>Entity();
+            var result = Add(entity);
             return ResultModel.Result(result);
         }
 
@@ -49,7 +42,7 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _clas
 <# if(_class.Method.Delete) {#>
         public async Task<IResultModel> Delete(<#= _class.PrimaryKeyTypeName #> id)
         {
-            var result = await _repository.DeleteAsync(id);
+            var result = RemoveByKey(id);
             return ResultModel.Result(result);
         }
 
@@ -57,29 +50,19 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _clas
 <# if(_class.Method.Edit) {#>
         public async Task<IResultModel> Edit(<#= _class.PrimaryKeyTypeName #> id)
         {
-            var entity = await _repository.GetAsync(id);
+            var entity = GetModeleByKey(id);
             if (entity == null)
                 return ResultModel.NotExists;
 
-            var model = _mapper.Map<<#= _class.Name #>UpdateModel>(entity);
+          
             return ResultModel.Success(model);
         }
 
         public async Task<IResultModel> Update(<#= _class.Name #>UpdateModel model)
         {
-            var entity = await _repository.GetAsync(model.Id);
-            if (entity == null)
-                return ResultModel.NotExists;
-
-            _mapper.Map(model, entity);
-
-            //if (await _repository.Exists(entity))
-            //{
-                //return ResultModel.HasExists;
-            //}
-
-            var result = await _repository.UpdateAsync(entity);
-
+		    <#= _class.Name #>Entity entity = new <#= _class.Name #>Entity();
+            model.CopyTo(entity);
+            var result = Update(Enum);
             return ResultModel.Result(result);
         }
 <#} #>

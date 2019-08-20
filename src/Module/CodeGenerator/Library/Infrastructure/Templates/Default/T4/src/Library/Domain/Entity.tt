@@ -8,6 +8,8 @@ using <#= _prefix #>.Lib.Data.Core.Entities;
 <#}else{ #>
 using <#= _prefix #>.Lib.Data.Core.Entities.Extend;
 <#} #>
+using System.ComponentModel.DataAnnotations.Schema;
+using Temii.Core.EntityBase;
 
 namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Domain.<#= _class.Name #>
 {

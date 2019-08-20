@@ -9,11 +9,13 @@
 // ------------------------------------------------------------------------------
 namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Web
 {
+    using System;
+    
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Web\Csproj.tt"
+    #line 1 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Web\Csproj.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class Csproj : CsprojBase
     {
@@ -23,40 +25,25 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Web
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup>\r\n    <TargetFramework>nets" +
-                    "tandard2.0</TargetFramework>\r\n    <GenerateDocumentationFile>false</GenerateDocu" +
-                    "mentationFile>\r\n  </PropertyGroup>\r\n\r\n  <ItemGroup>\r\n    <PackageReference Inclu" +
-                    "de=\"");
-            
-            #line 10 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Web\Csproj.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_prefix));
-            
-            #line default
-            #line hidden
-            this.Write(".Lib.Auth.Web\" Version=\"1.0.0\" />\r\n    <PackageReference Include=\"");
-            
-            #line 11 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Web\Csproj.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_prefix));
-            
-            #line default
-            #line hidden
-            this.Write(".Lib.Module.AspNetCore\" Version=\"1.0.0\" />\r\n    <PackageReference Include=\"");
-            
-            #line 12 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Web\Csproj.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_prefix));
-            
-            #line default
-            #line hidden
-            this.Write(".Lib.Utils.Mvc\" Version=\"1.0.0\" />\r\n    <PackageReference Include=\"");
-            
-            #line 13 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Web\Csproj.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_prefix));
-            
-            #line default
-            #line hidden
-            this.Write(".Lib.Validation.FluentValidation\" Version=\"1.0.0\" />\r\n  </ItemGroup>\r\n\r\n  <ItemGr" +
-                    "oup>\r\n    <ProjectReference Include=\"..\\Library\\Application\\Application.csproj\" " +
-                    "/>\r\n  </ItemGroup>\r\n\r\n</Project>\r\n");
+            this.Write(@"<Project Sdk=""Microsoft.NET.Sdk"">
+
+  <PropertyGroup>
+   <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include=""Microsoft.AspNetCore.App"" />
+    <PackageReference Include=""Microsoft.AspNetCore.Razor.Design"" Version=""2.2.0"" PrivateAssets=""All"" />
+    <PackageReference Include=""Temii.ControllerCore"" Version=""1.1.6"" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include=""..\Library\Application\Application.csproj"" />
+  </ItemGroup>
+
+</Project>
+");
             return this.GenerationEnvironment.ToString();
         }
     }

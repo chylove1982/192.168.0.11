@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <Import Project="..\..\..\..\..\build\module.build.targets" />
@@ -19,10 +19,6 @@
     <None Update="Templates\Default\T4\data\SchemaOracle.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SchemaOracle.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Default\T4\src\Library\Infrastructure\Options\ModuleOptionsConfigure.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ModuleOptionsConfigure.cs</LastGenOutput>
     </None>
     <None Update="Templates\Default\T4\src\WebHost\config\cache.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -160,37 +156,9 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>QueryModel.cs</LastGenOutput>
     </None>
-    <None Update="Templates\Default\T4\src\Library\Domain\Repository.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Repository.cs</LastGenOutput>
-    </None>
     <None Update="Templates\Default\T4\src\Library\Domain\EntityEnum.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EntityEnum.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Default\T4\src\Library\Infrastructure\Csproj.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Csproj.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Default\T4\src\Library\Infrastructure\Repositories\DbContext.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DbContext.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Default\T4\src\Library\Infrastructure\Repositories\SqlServerRepository.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>SqlServerRepository.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Default\T4\src\Library\Infrastructure\Repositories\MySqlRepository.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MySqlRepository.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Default\T4\src\Library\Infrastructure\Repositories\SQLiteRepository.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>SQLiteRepository.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Default\T4\src\Library\Infrastructure\Options\Options.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Options.cs</LastGenOutput>
     </None>
     <None Update="Templates\Default\T4\src\Library\Application\Csproj.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -211,10 +179,6 @@
     <None Update="Templates\Default\T4\src\Library\Application\ViewModels\UpdateModel.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UpdateModel.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Default\T4\src\Library\Application\MapperConfig.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MapperConfig.cs</LastGenOutput>
     </None>
     <None Update="Templates\Default\T4\src\WebHost\config\cache.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -369,36 +333,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>EntityEnum.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\Default\T4\src\Library\Infrastructure\Csproj.*">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Csproj.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\Default\T4\src\Library\Infrastructure\Repositories\DbContext.*">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DbContext.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\Default\T4\src\Library\Infrastructure\Repositories\SqlServerRepository.*">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SqlServerRepository.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\Default\T4\src\Library\Infrastructure\Repositories\MySqlRepository.*">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MySqlRepository.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\Default\T4\src\Library\Infrastructure\Repositories\SQLiteRepository.*">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SQLiteRepository.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\Default\T4\src\Library\Infrastructure\Options\Options.*">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Options.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\Default\T4\src\Library\Application\Csproj.*">
       <DesignTime>True</DesignTime>
@@ -670,11 +604,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>cacheDevelopment.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\Default\T4\src\Library\Infrastructure\Options\ModuleOptionsConfigure.*">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ModuleOptionsConfigure.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\Default\T4\build\ModuleBuildTargets.*">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -692,6 +621,51 @@
       <DependentUpon>SchemaOracle.tt</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Application\Csproj.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Csproj.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Application\ServiceImpl.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceImpl.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Application\ServiceInterface.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceInterface.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Application\ViewModels\AddModel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AddModel.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Application\ViewModels\UpdateModel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UpdateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Domain\Csproj.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Csproj.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Domain\Entity.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Domain\EntityEnum.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntityEnum.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Domain\EntityExtend.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntityExtend.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\Default\T4\src\Library\Domain\Models\QueryModel.cs">
       <DesignTime>True</DesignTime>
@@ -747,6 +721,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Web\Csproj.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Csproj.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

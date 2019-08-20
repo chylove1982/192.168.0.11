@@ -9,11 +9,14 @@
 // ------------------------------------------------------------------------------
 namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Library.Domain
 {
+    using System.Linq;
+    using System;
+    
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
+    #line 1 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class EntityEnum : EntityEnumBase
     {
@@ -23,77 +26,78 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using System.ComponentModel;\r\n\r\nnamespace ");
+            this.Write("using System.ComponentModel;\r\nusing System.ComponentModel.DataAnnotations.Schema;" +
+                    "\r\nusing Temii.Core.EntityBase;\r\n\r\nnamespace ");
             
-            #line 5 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
+            #line 7 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_prefix));
             
             #line default
             #line hidden
             this.Write(".Module.");
             
-            #line 5 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
+            #line 7 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_model.Project.Code));
             
             #line default
             #line hidden
             this.Write(".Domain.");
             
-            #line 5 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
+            #line 7 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_class.Name));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    /// <summary>\r\n    /// ");
             
-            #line 8 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
+            #line 10 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_enum.Remarks));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public enum ");
             
-            #line 10 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
+            #line 12 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_enum.Name));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        [Description(\"未知\")]\r\n        UnKnown,\r\n");
             
-            #line 14 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
+            #line 16 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
  for(var i=0;i<_enum.ItemList.Count;i++){ 
             
             #line default
             #line hidden
             
-            #line 15 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
+            #line 17 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
  var item = _enum.ItemList[i]; 
             
             #line default
             #line hidden
             this.Write("        [Description(\"");
             
-            #line 16 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
+            #line 18 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Remarks));
             
             #line default
             #line hidden
             this.Write("\")]\r\n        ");
             
-            #line 17 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
+            #line 19 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Name));
             
             #line default
             #line hidden
             
-            #line 17 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
+            #line 19 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(i == _enum.ItemList.Count - 1 ? "" : ","));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 18 "D:\MyProject\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
+            #line 20 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Domain\EntityEnum.tt"
     } 
             
             #line default
