@@ -3,19 +3,19 @@
     <el-row>
       <el-col :span="20" :offset="1">
         <el-form-item label="所属项目：">
-          <el-input v-model="project.name" disabled/>
+          <el-input v-model="project.name" disabled />
         </el-form-item>
         <el-form-item label="类名：" prop="name">
-          <el-input v-model="form.model.name"/>
+          <el-input v-model="form.model.tableName" />
         </el-form-item>
         <el-form-item label="表名：" prop="tableName">
-          <el-input v-model="form.model.tableName"/>
+          <el-input v-model="form.model.tableName" />
         </el-form-item>
         <el-form-item label="基类类型：" prop="baseEntityType">
-          <nm-select :method="getBaseEntityTypeSelect" v-model="form.model.baseEntityType"/>
+          <nm-select :method="getBaseEntityTypeSelect" v-model="form.model.baseEntityType" />
         </el-form-item>
         <el-form-item label="备注：" prop="remarks">
-          <el-input v-model="form.model.remarks"/>
+          <el-input v-model="form.model.remarks" />
         </el-form-item>
         <el-form-item label="基础方法：" prop="method">
           <el-checkbox v-model="form.model.method.add">Add</el-checkbox>
@@ -43,7 +43,7 @@ export default {
           projectId: '',
           name: '',
           tableName: '',
-          baseEntityType: 6,
+          baseEntityType: 1,
           remarks: '',
           method: {
             query: true,

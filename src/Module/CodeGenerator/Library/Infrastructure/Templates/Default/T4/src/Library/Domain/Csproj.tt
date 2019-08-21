@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Temii.Core" Version="1.1.6" />
+    <PackageReference Include="Temii.Core" Version="1.2.0" />
   </ItemGroup>
 
 </Project>

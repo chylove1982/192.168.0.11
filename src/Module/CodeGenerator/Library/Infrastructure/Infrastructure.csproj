@@ -480,6 +480,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Solution.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Application\Csproj.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Csproj.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Application\ServiceImpl.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceImpl.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Application\ViewModels\UpdateModel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UpdateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Default\T4\src\Library\Domain\Csproj.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Csproj.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\Default\T4\src\Library\Domain\Entity.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

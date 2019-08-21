@@ -200,23 +200,24 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
             
             #line default
             #line hidden
-            this.Write("AddModel model)\r\n        {\r\n            var entity = new ");
+            this.Write("AddModel model)\r\n        {\r\n\t\t    // Model 转换成实体\r\n\t\t    var entity=model.CopyTo<");
             
-            #line 50 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
+            #line 51 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_class.Name));
             
             #line default
             #line hidden
-            this.Write("Entity();\r\n            var result = Add(entity);\r\n            return ResultModel." +
-                    "Result(result);\r\n        }\r\n\r\n");
+            this.Write("Entity>();\r\n\t\t\t// 实体业务处理Begin\r\n\r\n\t\t\t// 实体业务处理End\r\n\r\n\t\t\t// 对实体操作数据库返回操作结果BOOL\r\n   " +
+                    "         var result = Add(entity);\r\n\r\n\t\t\t // 统一操作返回\r\n            return ResultMo" +
+                    "del.Result(result);\r\n        }\r\n\r\n");
             
-            #line 55 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
+            #line 63 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
 } 
             
             #line default
             #line hidden
             
-            #line 56 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
+            #line 64 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
  if(_class.Method.Delete) {
             
             #line default
@@ -226,21 +227,29 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
         /// </summary>
         /// <param name=""id"">编号</param>
         /// <returns>返回成功失败</returns>
-        public async Task<IResultModel> Delete(string id)
+        public async Task<IResultModel> Delete(string ID)
         {
-            var result = RemoveByKey(id);
+		    // 通过ID获得实体
+		    var entity = GetModeleByKey(ID);
+			// 判断实体是否存在
+            if (entity == null)
+                return ResultModel.NotExists;
+
+		    // 删除数据实体
+            var result = RemoveByKey(ID);
+		    // 统一操作返回
             return ResultModel.Result(result);
         }
 
 ");
             
-            #line 68 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
+            #line 84 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
 } 
             
             #line default
             #line hidden
             
-            #line 69 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
+            #line 85 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
  if(_class.Method.Edit) {
             
             #line default
@@ -248,19 +257,20 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
             this.Write("\t\t/// <summary>\r\n        /// 编辑_查看单条详情\r\n        /// </summary>\r\n        /// <para" +
                     "m name=\"id\"></param>\r\n        /// <returns>返回实体 ");
             
-            #line 74 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
+            #line 90 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_class.Name));
             
             #line default
             #line hidden
             this.Write(@"Entity </returns>
-        public async Task<IResultModel> Edit(string id)
+        public async Task<IResultModel> Edit(string ID)
         {
-            var entity = GetModeleByKey(id);
+	    	// 通过ID获得实体
+            var entity = GetModeleByKey(ID);
+			// 判断实体是否存在
             if (entity == null)
                 return ResultModel.NotExists;
-
-          
+            // 统一操作返回
             return ResultModel.Success(entity);
         }
 		/// <summary>
@@ -270,29 +280,29 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
         /// <returns>返回成功失败</returns>
         public async Task<IResultModel> Update(");
             
-            #line 89 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
+            #line 106 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_class.Name));
             
             #line default
             #line hidden
-            this.Write("UpdateModel model)\r\n        {\r\n\t\t    ");
+            this.Write(@"UpdateModel model)
+        {
+			// 通过ID获得实体
+            var entity = GetModeleByKey(model.ID);
+			// 判断实体是否存在
+            if (entity == null)
+                return ResultModel.NotExists;
+            // Model 内容复制到实体
+            model.CopyTo(entity);
+		    // 操作数据库
+			var result=Update(entity);
+			// 统一操作返回
+            return ResultModel.Success(result);
+
+        }
+");
             
-            #line 91 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_class.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Entity entity = new ");
-            
-            #line 91 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_class.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Entity();\r\n            model.CopyTo(entity);\r\n            var result = Update(ent" +
-                    "ity);\r\n            return ResultModel.Result(result);\r\n        }\r\n");
-            
-            #line 96 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
+            #line 121 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\Library\Application\ServiceImpl.tt"
 } 
             
             #line default

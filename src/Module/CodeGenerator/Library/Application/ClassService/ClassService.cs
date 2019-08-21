@@ -56,7 +56,7 @@ namespace Nm.Module.CodeGenerator.Application.ClassService
             {
                 if (await _repository.AddAsync(entity, tran))
                 {
-                    if (entity.BaseEntityType != BaseEntityType.Normal)
+                    if (entity.BaseEntityType == BaseEntityType.EntityBaseString)
                     {
                         var propertyEntities = _baseEntityPropertyCollection.Get(entity.BaseEntityType);
                         propertyEntities.ForEach(m => m.ClassId = entity.Id);

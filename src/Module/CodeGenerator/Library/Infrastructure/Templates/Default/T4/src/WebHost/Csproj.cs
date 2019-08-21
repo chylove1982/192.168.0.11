@@ -38,7 +38,7 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.WebHos
     <PackageReference Include=""Microsoft.VisualStudio.Web.CodeGeneration.Design"" Version=""2.2.3"" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include=""Temii.ControllerCore"" Version=""1.1.6"" />
+    <PackageReference Include=""Temii.ControllerCore"" Version=""1.2.0"" />
       <ProjectReference Include=""..\Library\Application\Application.csproj"" />
       <ProjectReference Include=""..\Library\Domain\Domain.csproj"" />
   </ItemGroup>

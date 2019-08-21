@@ -13,7 +13,7 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _clas
     public class <#= _class.Name #>UpdateModel
     {
         [Required(ErrorMessage = "请选择要修改的<#= _class.Remarks #>")]
-        public <#= _class.PrimaryKeyTypeName #> Id { get; set; }
+        public string ID { get; set; }
 
     <# foreach(var p in _class.AddModelPropertyList){ #>
         /// <summary>

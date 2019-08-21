@@ -27,7 +27,7 @@ namespace Nm.Module.CodeGenerator.Infrastructure.Templates.Default.T4.src.Librar
         {
             this.Write("<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup>\r\n    <TargetFramework>netc" +
                     "oreapp2.2</TargetFramework>\r\n  </PropertyGroup>\r\n\r\n  <ItemGroup>\r\n    <PackageRe" +
-                    "ference Include=\"Temii.Core\" Version=\"1.1.6\" />\r\n  </ItemGroup>\r\n\r\n</Project>\r\n\r" +
+                    "ference Include=\"Temii.Core\" Version=\"1.2.0\" />\r\n  </ItemGroup>\r\n\r\n</Project>\r\n\r" +
                     "\n");
             return this.GenerationEnvironment.ToString();
         }

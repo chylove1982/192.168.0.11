@@ -60,7 +60,7 @@ namespace ");
     /// <param name=""configuration""></param>
         public Startup(IConfiguration configuration)
         {
-            CommonKey.MSSQLConnectionString = ""Data Source=127.0.0.1;Initial Catalog=NetCoreDBtest;User ID=sa;Password=test;"";
+            CommonKey.MSSQLConnectionString = ""Data Source=192.168.1.104;Initial Catalog=testdb;User ID=sa;Password=chy@1982;"";
             CommonKey.SSOURL = ""http://192.168.1.107:16000/ssoapi/SPD"";
             Configuration = configuration;
         }
@@ -79,6 +79,13 @@ namespace ");
             //注册Swagger生成器,定义一个和多个Swagger 文档
             services.AddSPDConfig();
             services.AddApplicationServices(""");
+            
+            #line 41 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\WebHost\Startup.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(_prefix));
+            
+            #line default
+            #line hidden
+            this.Write(".Module.");
             
             #line 41 "C:\vsCode\NetModular\src\Module\CodeGenerator\Library\Infrastructure\Templates\Default\T4\src\WebHost\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_model.Project.Code));

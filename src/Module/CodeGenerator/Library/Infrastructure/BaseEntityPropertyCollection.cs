@@ -35,7 +35,7 @@ namespace Nm.Module.CodeGenerator.Infrastructure
             {
                 new PropertyEntity
                 {
-                    Name = "Id",
+                    Name = "ID",
                     IsPrimaryKey = true,
                     IsInherit = true,
                     Remarks = "主键",
@@ -48,8 +48,10 @@ namespace Nm.Module.CodeGenerator.Infrastructure
                     Name = "CreatedBy",
                     IsInherit = true,
                     Remarks = "创建人",
-                    Type = PropertyType.Guid,
-                    Sort = 1000
+                    Type = PropertyType.String,
+                    ShowInList = true,
+                    Sort = 1000,
+                    Length=(primaryKeyPropertyType==PropertyType.String)?50:0
                 },
                 new PropertyEntity
                 {
@@ -57,6 +59,7 @@ namespace Nm.Module.CodeGenerator.Infrastructure
                     IsInherit = true,
                     Remarks = "创建时间",
                     Type = PropertyType.DateTime,
+                    ShowInList = true,
                     Sort = 1001
                 },
                 new PropertyEntity
@@ -64,8 +67,9 @@ namespace Nm.Module.CodeGenerator.Infrastructure
                     Name = "ModifiedBy",
                     IsInherit = true,
                     Remarks = "修改人",
-                    Type = PropertyType.Guid,
-                    Sort = 1002
+                    Type = PropertyType.String,
+                    Sort = 1002,
+                    Length=(primaryKeyPropertyType==PropertyType.String)?50:0
                 },
                 new PropertyEntity
                 {
@@ -74,6 +78,33 @@ namespace Nm.Module.CodeGenerator.Infrastructure
                     Remarks = "修改时间",
                     Type = PropertyType.DateTime,
                     Sort = 1003
+                },
+                new PropertyEntity
+                {
+                    Name = "PID",
+                    IsInherit = true,
+                    Remarks = "父级ID",
+                    Type = PropertyType.String,
+                    Sort = 1004,
+                    Length=(primaryKeyPropertyType==PropertyType.String)?50:0,
+                    Nullable=true
+                },
+                new PropertyEntity
+                {
+                    Name = "CID",
+                    IsInherit = true,
+                    Remarks = "所属公司",
+                    Type = PropertyType.String,
+                    Sort = 1005,
+                    Length=(primaryKeyPropertyType==PropertyType.String)?50:0
+                },
+                new PropertyEntity
+                {
+                    Name = "IsDeleted",
+                    IsInherit = true,
+                    Remarks = "是否删除",
+                    Type = PropertyType.Bool,
+                    Sort = 1006
                 },
             };
         }
@@ -151,38 +182,10 @@ namespace Nm.Module.CodeGenerator.Infrastructure
         {
             switch (type)
             {
-                case BaseEntityType.EntityInt:
-                    return GetEntityProperties(PropertyType.Int);
-                case BaseEntityType.EntityLong:
-                    return GetEntityProperties(PropertyType.Long);
-                case BaseEntityType.EntityGuid:
-                    return GetEntityProperties(PropertyType.Guid);
-                case BaseEntityType.EntityString:
-                    return GetEntityProperties(PropertyType.String);
-                case BaseEntityType.EntityBaseInt:
-                    return GetEntityBaseProperties(PropertyType.Int);
-                case BaseEntityType.EntityBaseLong:
-                    return GetEntityBaseProperties(PropertyType.Long);
-                case BaseEntityType.EntityBaseGuid:
-                    return GetEntityBaseProperties(PropertyType.Guid);
+
                 case BaseEntityType.EntityBaseString:
                     return GetEntityBaseProperties(PropertyType.String);
-                case BaseEntityType.EntityWithSoftDeleteInt:
-                    return GetEntityWithSoftDeleteProperties(PropertyType.Int);
-                case BaseEntityType.EntityWithSoftDeleteLong:
-                    return GetEntityWithSoftDeleteProperties(PropertyType.Long);
-                case BaseEntityType.EntityWithSoftDeleteGuid:
-                    return GetEntityWithSoftDeleteProperties(PropertyType.Guid);
-                case BaseEntityType.EntityWithSoftDeleteString:
-                    return GetEntityWithSoftDeleteProperties(PropertyType.String);
-                case BaseEntityType.EntityBaseWithSoftDeleteInt:
-                    return GetEntityBaseWithSoftDeleteProperties(PropertyType.Int);
-                case BaseEntityType.EntityBaseWithSoftDeleteLong:
-                    return GetEntityBaseWithSoftDeleteProperties(PropertyType.Long);
-                case BaseEntityType.EntityBaseWithSoftDeleteGuid:
-                    return GetEntityBaseWithSoftDeleteProperties(PropertyType.Guid);
-                case BaseEntityType.EntityBaseWithSoftDeleteString:
-                    return GetEntityBaseWithSoftDeleteProperties(PropertyType.String);
+
             }
 
             return new List<PropertyEntity>();

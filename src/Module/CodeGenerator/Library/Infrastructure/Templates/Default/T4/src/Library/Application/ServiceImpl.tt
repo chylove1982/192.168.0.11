@@ -47,8 +47,16 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _clas
         /// <returns>返回成功失败</returns>
         public async Task<IResultModel> Add(<#= _class.Name #>AddModel model)
         {
-            var entity = new <#= _class.Name #>Entity();
+		    // Model 转换成实体
+		    var entity=model.CopyTo<<#= _class.Name #>Entity>();
+			// 实体业务处理Begin
+
+			// 实体业务处理End
+
+			// 对实体操作数据库返回操作结果BOOL
             var result = Add(entity);
+
+			 // 统一操作返回
             return ResultModel.Result(result);
         }
 
@@ -59,9 +67,17 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _clas
         /// </summary>
         /// <param name="id">编号</param>
         /// <returns>返回成功失败</returns>
-        public async Task<IResultModel> Delete(string id)
+        public async Task<IResultModel> Delete(string ID)
         {
-            var result = RemoveByKey(id);
+		    // 通过ID获得实体
+		    var entity = GetModeleByKey(ID);
+			// 判断实体是否存在
+            if (entity == null)
+                return ResultModel.NotExists;
+
+		    // 删除数据实体
+            var result = RemoveByKey(ID);
+		    // 统一操作返回
             return ResultModel.Result(result);
         }
 
@@ -72,13 +88,14 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _clas
         /// </summary>
         /// <param name="id"></param>
         /// <returns>返回实体 <#= _class.Name #>Entity </returns>
-        public async Task<IResultModel> Edit(string id)
+        public async Task<IResultModel> Edit(string ID)
         {
-            var entity = GetModeleByKey(id);
+	    	// 通过ID获得实体
+            var entity = GetModeleByKey(ID);
+			// 判断实体是否存在
             if (entity == null)
                 return ResultModel.NotExists;
-
-          
+            // 统一操作返回
             return ResultModel.Success(entity);
         }
 		/// <summary>
@@ -88,10 +105,18 @@ namespace <#= _prefix #>.Module.<#= _model.Project.Code #>.Application.<#= _clas
         /// <returns>返回成功失败</returns>
         public async Task<IResultModel> Update(<#= _class.Name #>UpdateModel model)
         {
-		    <#= _class.Name #>Entity entity = new <#= _class.Name #>Entity();
+			// 通过ID获得实体
+            var entity = GetModeleByKey(model.ID);
+			// 判断实体是否存在
+            if (entity == null)
+                return ResultModel.NotExists;
+            // Model 内容复制到实体
             model.CopyTo(entity);
-            var result = Update(entity);
-            return ResultModel.Result(result);
+		    // 操作数据库
+			var result=Update(entity);
+			// 统一操作返回
+            return ResultModel.Success(result);
+
         }
 <#} #>
     }
