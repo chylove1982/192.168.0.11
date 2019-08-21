@@ -5,8 +5,9 @@
         <el-form-item label="所属项目：">
           <el-input v-model="project.name" disabled />
         </el-form-item>
-        <el-form-item label="类名：" prop="name">
-          <el-input v-model="form.model.tableName" />
+        <el-form-item label="类名：" prop="Name">
+          <!-- <el-input v-model="form.model.tableName+'eneity'" /> -->
+          <div v-if="form.model.Name != ''">{{form.model.Name}}Entity</div>
         </el-form-item>
         <el-form-item label="表名：" prop="tableName">
           <el-input v-model="form.model.tableName" />
@@ -41,9 +42,9 @@ export default {
         action: api.add,
         model: {
           projectId: '',
-          name: '',
+          Name: '',
           tableName: '',
-          baseEntityType: 1,
+          baseEntityType: 0,
           remarks: '',
           method: {
             query: true,
@@ -80,12 +81,23 @@ export default {
       required: true
     }
   },
+  watch: {
+    form: {
+      handler: function () {
+        this.form.model.Name = this.form.model.tableName
+      },
+      deep: true
+    }
+  },
   methods: {
     getBaseEntityTypeSelect() {
       return api.getBaseEntityTypeSelect()
     },
     onSuccess() {
       this.$emit('success')
+    },
+    test() {
+      this.form.submit()
     },
     onOpen() {
       this.$nextTick(() => {
