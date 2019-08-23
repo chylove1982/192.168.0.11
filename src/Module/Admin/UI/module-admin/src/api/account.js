@@ -1,5 +1,5 @@
-import { http } from 'nm-lib-utils'
-import { token } from 'nm-lib-skins'
+import { http } from 'temii-lib-utils'
+import { token } from 'temii-lib-skins'
 
 const root = 'admin/account/'
 const crud = http.crud(root)

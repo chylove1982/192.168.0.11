@@ -1,23 +1,23 @@
 <template>
-  <nm-container>
-    <nm-box v-bind="box">
+  <temii-container>
+    <temii-box v-bind="box">
       <template v-slot:toolbar>
         <el-color-picker v-model="color" size="small" style="position: absolute;top:3px;left:-40px" />
-        <el-input class="nm-icon-picker-panel-filter" v-model="filter" placeholder="请输入英文或中文名称" clearable></el-input>
+        <el-input class="temii-icon-picker-panel-filter" v-model="filter" placeholder="请输入英文或中文名称" clearable></el-input>
       </template>
-      <div v-for="icon in iconList" :key="icon.code" class="nm-admin-icon-item">
+      <div v-for="icon in iconList" :key="icon.code" class="temii-admin-icon-item">
         <div class="icon">
-          <nm-icon :name="icon.code" :style="{color}" />
+          <temii-icon :name="icon.code" :style="{color}" />
         </div>
         <span class="text">{{icon.name}}</span>
         <span class="code">{{icon.code}}</span>
       </div>
-    </nm-box>
-  </nm-container>
+    </temii-box>
+  </temii-container>
 </template>
 <script>
 import page from './page'
-import { iconData } from 'nm-lib-icon'
+import { iconData } from 'temii-lib-icon'
 
 export default {
   name: page.name,
@@ -48,7 +48,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.nm-admin-icon-item {
+.temii-admin-icon-item {
   margin: 5px;
   padding: 5px;
   text-align: center;

@@ -1,12 +1,12 @@
 <template>
-  <nm-split v-model="split">
+  <temii-split v-model="split">
     <template v-slot:left>
-      <nm-box page header title="菜单树" type="success" icon="menu" :toolbar="null">
+      <temii-box page header title="菜单树" type="success" icon="menu" :toolbar="null">
         <menu-tree ref="tree" v-model="menuId" v-bind="menuTree" v-on="treeOn"/>
-      </nm-box>
+      </temii-box>
     </template>
     <template v-slot:right>
-      <nm-box page header title="按钮设置" icon="system">
+      <temii-box page header title="按钮设置" icon="system">
         <template v-if="showButtonBox">
           <el-checkbox :indeterminate="isIndeterminate" :disabled="!isMenuChecked" v-model="checkAll" @change="onButtonCheckAllChange">全选</el-checkbox>
           <el-divider/>
@@ -14,12 +14,12 @@
             <el-checkbox v-for="button in buttons" :label="button.id" :key="button.id" border @change="onButtonChange(button.id,$event)">{{button.name}}</el-checkbox>
           </el-checkbox-group>
         </template>
-      </nm-box>
+      </temii-box>
     </template>
-  </nm-split>
+  </temii-split>
 </template>
 <script>
-import { mixins } from 'nm-lib-skins'
+import { mixins } from 'temii-lib-skins'
 import MenuTree from '../tree'
 export default {
   components: { MenuTree },

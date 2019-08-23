@@ -1,13 +1,13 @@
 <template>
-  <nm-container>
-    <nm-split v-model="split">
+  <temii-container>
+    <temii-split v-model="split">
       <template v-slot:left>
-        <nm-box page header title="菜单树" type="success" icon="menu" :toolbar="null">
+        <temii-box page header title="菜单树" type="success" icon="menu" :toolbar="null">
           <menu-tree ref="tree" @select-change="onTreeSelectChange" />
-        </nm-box>
+        </temii-box>
       </template>
       <template v-slot:right>
-        <nm-list ref="list" :title="title" v-bind="list">
+        <temii-list ref="list" :title="title" v-bind="list">
           <!--查询条件-->
           <template v-slot:querybar>
             <el-form-item label="名称：" prop="name">
@@ -20,8 +20,8 @@
 
           <!--按钮-->
           <template v-slot:querybar-buttons="{total}">
-            <nm-button-has :options="buttons.add" @click="add(total)" />
-            <nm-button-has :options="buttons.sort" @click="openSort" />
+            <temii-button-has :options="buttons.add" @click="add(total)" />
+            <temii-button-has :options="buttons.sort" @click="openSort" />
           </template>
 
           <!--类型-->
@@ -35,7 +35,7 @@
           <template v-slot:col-icon="{row}">
             <el-tooltip :content="row.icon" effect="dark" placement="right" v-if="row.icon">
               <label>
-                <nm-icon :name="row.icon" size="20px" />
+                <temii-icon :name="row.icon" size="20px" />
               </label>
             </el-tooltip>
             <label v-else>无</label>
@@ -51,27 +51,27 @@
                 操作
                 <i class="el-icon-arrow-down el-icon--right"></i>
               </span>
-              <el-dropdown-menu class="nm-list-operation-dropdown" slot="dropdown">
+              <el-dropdown-menu class="temii-list-operation-dropdown" slot="dropdown">
                 <el-dropdown-item>
-                  <nm-button-has :options="buttons.edit" @click="edit(row)" />
+                  <temii-button-has :options="buttons.edit" @click="edit(row)" />
                 </el-dropdown-item>
                 <el-dropdown-item>
-                  <nm-button-delete :options="buttons.del" :action="remove" :id="row.id" @success="refresh(true)" />
+                  <temii-button-delete :options="buttons.del" :action="remove" :id="row.id" @success="refresh(true)" />
                 </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </template>
-        </nm-list>
+        </temii-list>
       </template>
-    </nm-split>
+    </temii-split>
 
     <!--添加菜单-->
     <add-page :parent="menu" :sort="total" :visible.sync="dialog.add" @success="refresh(true)" />
     <!--编辑菜单-->
     <edit-page :parent="menu" :id="currentMenu.id" :visible.sync="dialog.edit" @success="refresh(true)" />
     <!--排序-->
-    <nm-drag-sort-dialog v-bind="dragSort" :visible.sync="dialog.sort" @success="refresh(true)" />
-  </nm-container>
+    <temii-drag-sort-dialog v-bind="dragSort" :visible.sync="dialog.sort" @success="refresh(true)" />
+  </temii-container>
 </template>
 <script>
 import { mapMutations } from 'vuex'

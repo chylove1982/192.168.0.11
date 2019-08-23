@@ -1,10 +1,10 @@
 <template>
-  <nm-dialog title="绑定角色" icon="bind" :visible.sync="visible_">
+  <temii-dialog title="绑定角色" icon="bind" :visible.sync="visible_">
     <role-checkbox :checked="checked"/>
-  </nm-dialog>
+  </temii-dialog>
 </template>
 <script>
-import { mixins } from 'nm-lib-skins'
+import { mixins } from 'temii-lib-skins'
 import RoleCheckbox from '../../../role/checkbox'
 export default {
   components: { RoleCheckbox },

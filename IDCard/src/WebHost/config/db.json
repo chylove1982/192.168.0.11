@@ -1,0 +1,19 @@
+{
+  "Logging": false,
+  "Connections": [
+    {
+      "Name": "Admin",
+      "Dialect": 0,
+      "Database": "Nm_adminnew",
+      "ConnString": "Server=120.25.58.136;Database=Nm_adminnew;Uid=sa;Pwd=saSyslive;"
+      //   "ConnString": "Server=localhost;Database=Nm_adminnew;Uid=sa;Pwd=saSyslive;Allow User Variables=True;charset=utf8;SslMode=none;"
+    },
+    {
+      "Name": "IDCard",
+      "Dialect": 0,
+      "Database": "Nm_IDCard",
+      "ConnString": "Server=120.25.58.136;Database=Nm_IDCard;Uid=sa;Pwd=saSyslive;"
+      //  "ConnString": "Server=localhost;Database=Nm_IDCard;Uid=root;Pwd=root;Allow User Variables=True;charset=utf8;SslMode=none;"
+    }
+  ]
+}

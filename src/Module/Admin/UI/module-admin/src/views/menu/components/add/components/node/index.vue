@@ -1,5 +1,5 @@
 <template>
-  <nm-form ref="form" v-bind="form" v-on="on">
+  <temii-form ref="form" v-bind="form" v-on="on">
     <el-row :gutter="50">
       <el-col :span="10" :offset="2">
         <el-form-item label="父节点">
@@ -15,12 +15,12 @@
     <el-row :gutter="50">
       <el-col :span="10" :offset="2">
         <el-form-item label="图标：" prop="icon">
-          <nm-icon-picker v-model="form.model.icon"/>
+          <temii-icon-picker v-model="form.model.icon"/>
         </el-form-item>
       </el-col>
       <el-col :span="10">
         <el-form-item label="图标颜色：" prop="iconColor">
-          <nm-color-picker v-model="form.model.iconColor"/>
+          <temii-color-picker v-model="form.model.iconColor"/>
         </el-form-item>
       </el-col>
     </el-row>
@@ -43,7 +43,7 @@
         </el-form-item>
       </el-col>
     </el-row>
-  </nm-form>
+  </temii-form>
 </template>
 <script>
 import mixins from '../mixins'

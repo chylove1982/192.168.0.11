@@ -1,5 +1,5 @@
 <template>
-  <nm-drawer v-bind="drawer" :visible.sync="visible_">
+  <temii-drawer v-bind="drawer" :visible.sync="visible_">
     <el-form label-width="120px" disabled>
       <el-form-item label="账户：">{{model.creator}}</el-form-item>
       <el-form-item label="模块：">{{model.moduleName}}({{model.area}})</el-form-item>
@@ -19,11 +19,11 @@
         <el-input type="textarea" :value="model.result" :rows="10" />
       </el-form-item>
     </el-form>
-  </nm-drawer>
+  </temii-drawer>
 </template>
 <script>
 import api from '../../../../api/auditinfo'
-import { mixins } from 'nm-lib-skins'
+import { mixins } from 'temii-lib-skins'
 export default {
   mixins: [mixins.drawer],
   data() {

@@ -1,5 +1,5 @@
 <template>
-  <nm-login :actions="actions" />
+  <temii-login :actions="actions" />
 </template>
 <script>
 import { mapActions } from 'vuex'

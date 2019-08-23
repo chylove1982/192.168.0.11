@@ -1,5 +1,5 @@
-import { http } from 'nm-lib-utils'
-import { token, store } from 'nm-lib-skins'
+import { http } from 'temii-lib-utils'
+import { token, store } from 'temii-lib-skins'
 import routerConfig from '../router'
 import { Message } from 'element-ui'
 

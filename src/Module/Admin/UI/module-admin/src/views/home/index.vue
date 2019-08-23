@@ -1,19 +1,19 @@
 <template>
-  <nm-container scrollbar>
-    <nm-box-row height="400px">
-      <nm-box-col :span="12">
+  <temii-container scrollbar>
+    <temii-box-row height="400px">
+      <temii-box-col :span="12">
         <top-left/>
-      </nm-box-col>
-      <nm-box-col :span="12">
+      </temii-box-col>
+      <temii-box-col :span="12">
         <top-right/>
-      </nm-box-col>
-    </nm-box-row>
-    <nm-box-row height="500px">
-      <nm-box-col :span="24">
+      </temii-box-col>
+    </temii-box-row>
+    <temii-box-row height="500px">
+      <temii-box-col :span="24">
         <bottom/>
-      </nm-box-col>
-    </nm-box-row>
-  </nm-container>
+      </temii-box-col>
+    </temii-box-row>
+  </temii-container>
 </template>
 <script>
 import page from './page'

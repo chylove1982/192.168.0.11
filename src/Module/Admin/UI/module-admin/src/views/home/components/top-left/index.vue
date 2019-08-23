@@ -1,5 +1,5 @@
 <template>
-  <nm-box header title="饼图" icon="chart-pie">
+  <temii-box header title="饼图" icon="chart-pie">
     <template v-slot:toolbar-before>
       <el-date-picker
         size="mini"
@@ -14,10 +14,10 @@
       ></el-date-picker>
     </template>
     <template v-slot:toolbar>
-      <nm-button icon="refresh"/>
+      <temii-button icon="refresh"/>
     </template>
     <div ref="chart" style="width:100%;height:100%"></div>
-  </nm-box>
+  </temii-box>
 </template>
 <script>
 export default {

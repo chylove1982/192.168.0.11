@@ -1,4 +1,4 @@
-import { http } from 'nm-lib-utils'
+import { http } from 'temii-lib-utils'
 const root = 'admin/auditinfo/'
 const crud = http.crud(root)
 const urls = {

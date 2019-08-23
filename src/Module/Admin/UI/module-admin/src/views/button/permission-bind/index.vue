@@ -1,10 +1,10 @@
 <template>
-  <nm-dialog v-bind="dialog" :visible.sync="visible_" @open="onOpen">
+  <temii-dialog v-bind="dialog" :visible.sync="visible_" @open="onOpen">
     <bind-page ref="bind" :query="query" :action="action"/>
-  </nm-dialog>
+  </temii-dialog>
 </template>
 <script>
-import { mixins } from 'nm-lib-skins'
+import { mixins } from 'temii-lib-skins'
 import BindPage from '../../permission/components/bind'
 import api from '../../../api/button'
 export default {

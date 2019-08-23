@@ -1,4 +1,4 @@
-import { http } from 'nm-lib-utils'
+import { http } from 'temii-lib-utils'
 const root = 'admin/moduleinfo/'
 const crud = http.crud(root)
 const urls = {

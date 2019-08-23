@@ -1,6 +1,6 @@
 <template>
-  <nm-container>
-    <nm-list ref="list" v-bind="list">
+  <temii-container>
+    <temii-list ref="list" v-bind="list">
       <!--查询条件-->
       <template v-slot:querybar>
         <el-form-item label="名称：" prop="name">
@@ -16,22 +16,22 @@
               <module-info-select v-model="list.model.moduleCode" @change="onModuleChange" />
             </el-form-item>
             <el-form-item label="控制器：" prop="controller">
-              <nm-select ref="controllerSelect" :method="getAllControllerAction" v-model="list.model.controller" @change="onControllerChange">
+              <temii-select ref="controllerSelect" :method="getAllControllerAction" v-model="list.model.controller" @change="onControllerChange">
                 <template v-slot:default="{options}">
                   <el-option v-for="option in options" :key="option.value" :label="option.label" :value="option.value">
                     <span>{{option.label}}({{option.value}})</span>
                   </el-option>
                 </template>
-              </nm-select>
+              </temii-select>
             </el-form-item>
             <el-form-item label="方法：" prop="action">
-              <nm-select ref="actionSelect" :method="getAllAction" v-model="list.model.action">
+              <temii-select ref="actionSelect" :method="getAllAction" v-model="list.model.action">
                 <template v-slot:default="{options}">
                   <el-option v-for="option in options" :key="option.value" :label="option.label" :value="option.value">
                     <span>{{option.label}}({{option.value}})</span>
                   </el-option>
                 </template>
-              </nm-select>
+              </temii-select>
             </el-form-item>
           </el-col>
         </el-row>
@@ -39,14 +39,14 @@
 
       <!--按钮-->
       <template v-slot:querybar-buttons>
-        <nm-button-has :options="buttons.sync" @click="sync" />
+        <temii-button-has :options="buttons.sync" @click="sync" />
       </template>
 
       <template v-slot:col-moduleName="{row}">
         <span>{{`${row.moduleName}(${row.moduleCode})`}}</span>
       </template>
-    </nm-list>
-  </nm-container>
+    </temii-list>
+  </temii-container>
 </template>
 <script>
 import api from '../../../api/permission'

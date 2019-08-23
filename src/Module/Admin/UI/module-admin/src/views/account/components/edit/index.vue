@@ -1,5 +1,5 @@
 <template>
-  <nm-form-dialog ref="form" v-bind="form" v-on="on" :visible.sync="visible_">
+  <temii-form-dialog ref="form" v-bind="form" v-on="on" :visible.sync="visible_">
     <el-row>
       <el-col :span="20" :offset="1">
         <el-form-item label="用户名：" prop="userName">
@@ -22,11 +22,11 @@
         </el-form-item>
       </el-col>
     </el-row>
-  </nm-form-dialog>
+  </temii-form-dialog>
 </template>
 <script>
 import api from '../../../../api/account'
-import { mixins } from 'nm-lib-skins'
+import { mixins } from 'temii-lib-skins'
 import RoleSelect from '../../../role/components/select'
 export default {
   components: { RoleSelect },

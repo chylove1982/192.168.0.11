@@ -1,6 +1,6 @@
 <template>
-  <nm-container>
-    <nm-list ref="list" v-bind="list">
+  <temii-container>
+    <temii-list ref="list" v-bind="list">
       <!--查询条件-->
       <template v-slot:querybar>
         <el-form-item label="键或值：" prop="key">
@@ -10,21 +10,21 @@
 
       <!--按钮-->
       <template v-slot:querybar-buttons>
-        <nm-button-has :options="buttons.add" @click="addPage.visible=true" />
+        <temii-button-has :options="buttons.add" @click="addPage.visible=true" />
       </template>
 
       <!--操作列-->
       <template v-slot:col-operation="{row}">
-        <nm-button-has :options="buttons.edit" @click="edit(row)" />
-        <nm-button-delete :options="buttons.del" :action="removeAction" :id="row.id" @success="refresh" />
+        <temii-button-has :options="buttons.edit" @click="edit(row)" />
+        <temii-button-delete :options="buttons.del" :action="removeAction" :id="row.id" @success="refresh" />
       </template>
-    </nm-list>
+    </temii-list>
 
     <!--添加页-->
     <add-page :visible.sync="addPage.visible" @success="refresh" />
     <!--编辑页-->
     <edit-page :id="editDialog.id" :visible.sync="editDialog.visible" @success="refresh" />
-  </nm-container>
+  </temii-container>
 </template>
 <script>
 import api from '../../../api/config'

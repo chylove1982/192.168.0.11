@@ -1,6 +1,6 @@
 <template>
-  <nm-container>
-    <nm-list ref="list" v-bind="list">
+  <temii-container>
+    <temii-list ref="list" v-bind="list">
       <!--查询-->
       <template v-slot:querybar>
         <el-form-item label="名称：" prop="name">
@@ -10,7 +10,7 @@
 
       <!--按钮-->
       <template v-slot:querybar-buttons>
-        <nm-button-has :options="buttons.sync" @click="sync" />
+        <temii-button-has :options="buttons.sync" @click="sync" />
       </template>
 
       <!--是否显示-->
@@ -18,10 +18,10 @@
 
       <!--操作列-->
       <template v-slot:col-operation="{row}">
-        <nm-button-delete :options="buttons.del" :action="removeAction" :id="row.id" @success="refresh" />
+        <temii-button-delete :options="buttons.del" :action="removeAction" :id="row.id" @success="refresh" />
       </template>
-    </nm-list>
-  </nm-container>
+    </temii-list>
+  </temii-container>
 </template>
 <script>
 import api from '../../../api/moduleInfo'

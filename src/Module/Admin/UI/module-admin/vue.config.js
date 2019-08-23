@@ -14,13 +14,13 @@ module.exports = {
   devServer: {
     port: 5220
   },
-  transpileDependencies: ['nm-.*', 'element-ui'],
+  transpileDependencies: ['temii-.*', 'element-ui'],
   configureWebpack: {
     plugins: [
-      // 复制nm-lib-skins/public目录下的文件到输出目录
+      // 复制temii-lib-skins/public目录下的文件到输出目录
       new CopyWebpackPlugin([
         {
-          from: path.join(__dirname, 'node_modules/nm-lib-skins/public'),
+          from: path.join(__dirname, 'node_modules/temii-lib-skins/public'),
           to: path.join(__dirname, outputDir),
           ignore: ['index.html']
         }
@@ -37,10 +37,10 @@ module.exports = {
     config.plugins.delete('prefetch').delete('preload')
 
     /**
-     * 设置index.html模板路径，使用nm-lib-skins/public中的模板
+     * 设置index.html模板路径，使用temii-lib-skins/public中的模板
      */
     config.plugin('html').tap(args => {
-      args[0].template = './node_modules/nm-lib-skins/public/index.html'
+      args[0].template = './node_modules/temii-lib-skins/public/index.html'
       return args
     })
 
@@ -80,7 +80,7 @@ module.exports = {
             skins: {
               name: 'chunk-skins',
               priority: 10,
-              test: /[\\/]node_modules[\\/]nm-lib-skins(.*)/
+              test: /[\\/]node_modules[\\/]temii-lib-skins(.*)/
             }
           }
         })

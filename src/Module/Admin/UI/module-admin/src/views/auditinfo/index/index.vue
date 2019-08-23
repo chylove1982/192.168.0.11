@@ -1,6 +1,6 @@
 <template>
-  <nm-container>
-    <nm-list ref="list" v-bind="list">
+  <temii-container>
+    <temii-list ref="list" v-bind="list">
       <!--查询条件-->
       <template v-slot:querybar>
         <el-form-item label="模块：" prop="moduleCode">
@@ -41,12 +41,12 @@
 
       <!--操作列-->
       <template v-slot:col-operation="{row}">
-        <nm-button-has :options="buttons.details" @click="details(row)" />
+        <temii-button-has :options="buttons.details" @click="details(row)" />
       </template>
-    </nm-list>
+    </temii-list>
 
     <details-page :id="detailsPage.id" :visible.sync="detailsPage.visible" />
-  </nm-container>
+  </temii-container>
 </template>
 <script>
 import api from '../../../api/auditinfo'

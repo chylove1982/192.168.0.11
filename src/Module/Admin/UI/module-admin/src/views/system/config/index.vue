@@ -1,6 +1,6 @@
 <template>
-  <nm-container>
-    <nm-form-page ref="form" v-bind="form" @success="onSuccess">
+  <temii-container>
+    <temii-form-page ref="form" v-bind="form" @success="onSuccess">
       <el-divider content-position="left">基础信息</el-divider>
       <el-row :gutter="20">
         <el-col :span="10" :offset="1">
@@ -84,8 +84,8 @@
           </el-form-item>
         </el-col>
       </el-row>
-    </nm-form-page>
-  </nm-container>
+    </temii-form-page>
+  </temii-container>
 </template>
 <script>
 import { mapState } from 'vuex'

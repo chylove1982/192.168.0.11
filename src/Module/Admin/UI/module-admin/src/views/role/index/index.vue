@@ -1,6 +1,6 @@
 <template>
-  <nm-container>
-    <nm-list ref="list" v-bind="list">
+  <temii-container>
+    <temii-list ref="list" v-bind="list">
       <!--查询条件-->
       <template v-slot:querybar>
         <el-form-item label="名称：" prop="name">
@@ -10,16 +10,16 @@
 
       <!--按钮-->
       <template v-slot:querybar-buttons>
-        <nm-button-has :options="buttons.add" @click="addPage.visible=true" />
+        <temii-button-has :options="buttons.add" @click="addPage.visible=true" />
       </template>
 
       <!--操作列-->
       <template v-slot:col-operation="{row}">
-        <nm-button-has :options="buttons.edit" @click="edit(row)" />
-        <nm-button-has :options="buttons.bindMenu" @click="bindMenu(row)" />
-        <nm-button-delete :options="buttons.del" :action="removeAction" :id="row.id" @success="refresh" />
+        <temii-button-has :options="buttons.edit" @click="edit(row)" />
+        <temii-button-has :options="buttons.bindMenu" @click="bindMenu(row)" />
+        <temii-button-delete :options="buttons.del" :action="removeAction" :id="row.id" @success="refresh" />
       </template>
-    </nm-list>
+    </temii-list>
 
     <!--添加页-->
     <add-page :visible.sync="addPage.visible" @success="refresh" />
@@ -27,7 +27,7 @@
     <edit-page :id="editDialog.id" :visible.sync="editDialog.visible" @success="refresh" />
     <!--绑定菜单-->
     <bind-menu-page :id="bindMenuDialog.id" :visible.sync="bindMenuDialog.visible" />
-  </nm-container>
+  </temii-container>
 </template>
 <script>
 import api from '../../../api/role'

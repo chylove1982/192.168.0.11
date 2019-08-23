@@ -1,10 +1,10 @@
 <template>
-  <nm-split v-model="split" class="permission-bind" :loading="loading">
+  <temii-split v-model="split" class="permission-bind" :loading="loading">
     <template v-slot:left>
-      <nm-listbox title="已选列表" v-model="selection"/>
+      <temii-listbox title="已选列表" v-model="selection"/>
     </template>
     <template v-slot:right>
-      <nm-list ref="list" v-bind="list">
+      <temii-list ref="list" v-bind="list">
         <!--查询条件-->
         <template v-slot:querybar>
           <el-form-item label="名称：" prop="name">
@@ -20,22 +20,22 @@
                 <module-info-select v-model="list.model.moduleCode" @change="onModuleChange"/>
               </el-form-item>
               <el-form-item label="控制器：" prop="controller">
-                <nm-select ref="controllerSelect" :method="getAllControllerAction" v-model="list.model.controller" @change="onControllerChange">
+                <temii-select ref="controllerSelect" :method="getAllControllerAction" v-model="list.model.controller" @change="onControllerChange">
                   <template v-slot:default="{options}">
                     <el-option v-for="option in options" :key="option.value" :label="option.label" :value="option.value">
                       <span>{{option.label}}({{option.value}})</span>
                     </el-option>
                   </template>
-                </nm-select>
+                </temii-select>
               </el-form-item>
               <el-form-item label="方法：" prop="action">
-                <nm-select ref="actionSelect" :method="getAllAction" v-model="list.model.action">
+                <temii-select ref="actionSelect" :method="getAllAction" v-model="list.model.action">
                   <template v-slot:default="{options}">
                     <el-option v-for="option in options" :key="option.value" :label="option.label" :value="option.value">
                       <span>{{option.label}}({{option.value}})</span>
                     </el-option>
                   </template>
-                </nm-select>
+                </temii-select>
               </el-form-item>
             </el-col>
           </el-row>
@@ -43,16 +43,16 @@
 
         <!--操作列-->
         <template v-slot:col-operation="{row}">
-          <nm-button v-if="notIn(row)" icon="add" type="success" circle @click="add(row)"/>
+          <temii-button v-if="notIn(row)" icon="add" type="success" circle @click="add(row)"/>
           <el-tag v-else type="warning" disable-transitions>已选</el-tag>
         </template>
 
         <template v-slot:footer>
-          <nm-button type="success" text="保存" @click="save"/>
+          <temii-button type="success" text="保存" @click="save"/>
         </template>
-      </nm-list>
+      </temii-list>
     </template>
-  </nm-split>
+  </temii-split>
 </template>
 <script>
 import api from '../../../../api/permission'

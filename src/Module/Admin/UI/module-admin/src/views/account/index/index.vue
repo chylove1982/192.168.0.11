@@ -1,6 +1,6 @@
 <template>
-  <nm-container>
-    <nm-list ref="list" v-bind="list">
+  <temii-container>
+    <temii-list ref="list" v-bind="list">
       <!--查询条件-->
       <template v-slot:querybar>
         <el-form-item label="用户名：" prop="userName">
@@ -27,14 +27,14 @@
 
       <!--按钮-->
       <template v-slot:querybar-buttons="{total}">
-        <nm-button-has :options="buttons.add" @click="add(total)" />
+        <temii-button-has :options="buttons.add" @click="add(total)" />
       </template>
 
       <!--角色-->
       <template v-slot:col-roles="{row}">
         <template v-if="row.roles&&row.roles.length>0">
           <template v-for="(role,index) in row.roles">
-            <nm-button type="text" :key="role.value" :text="role.label" />
+            <temii-button type="text" :key="role.value" :text="role.label" />
             <template v-if="index < row.roles.length - 1">、</template>
           </template>
         </template>
@@ -60,26 +60,26 @@
             操作
             <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
-          <el-dropdown-menu class="nm-list-operation-dropdown" slot="dropdown">
+          <el-dropdown-menu class="temii-list-operation-dropdown" slot="dropdown">
             <el-dropdown-item>
-              <nm-button-has :options="buttons.edit" @click="edit(row)" />
+              <temii-button-has :options="buttons.edit" @click="edit(row)" />
             </el-dropdown-item>
             <el-dropdown-item>
-              <nm-button-has :options="buttons.resetPassword" @click="resetPassword(row)" />
+              <temii-button-has :options="buttons.resetPassword" @click="resetPassword(row)" />
             </el-dropdown-item>
             <el-dropdown-item>
-              <nm-button-delete :options="buttons.del" :disabled="row.id===accountId" :action="removeAction" :id="row.id" @success="refresh" />
+              <temii-button-delete :options="buttons.del" :disabled="row.id===accountId" :action="removeAction" :id="row.id" @success="refresh" />
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </template>
-    </nm-list>
+    </temii-list>
 
     <!--添加-->
     <add-page :visible.sync="addPage.visible" :sort="addPage.sort" @success="refresh" />
     <!--编辑-->
     <edit-page :visible.sync="editPage.visible" :id="editPage.id" @success="refresh" />
-  </nm-container>
+  </temii-container>
 </template>
 <script>
 import { mapState } from 'vuex'

@@ -1,5 +1,5 @@
 <template>
-  <nm-form-dialog ref="form" v-bind="form" v-on="on" :visible.sync="visible_">
+  <temii-form-dialog ref="form" v-bind="form" v-on="on" :visible.sync="visible_">
     <el-row>
       <el-col :span="20" :offset="1">
         <el-form-item label="键：" prop="key">
@@ -13,11 +13,11 @@
         </el-form-item>
       </el-col>
     </el-row>
-  </nm-form-dialog>
+  </temii-form-dialog>
 </template>
 <script>
 import api from '../../../../api/config'
-import { mixins } from 'nm-lib-skins'
+import { mixins } from 'temii-lib-skins'
 export default {
   mixins: [mixins.dialog],
   data() {

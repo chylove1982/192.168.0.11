@@ -1,7 +1,7 @@
 <template>
   <el-tree
     ref="tree"
-    class="nm-admin-menu-tree"
+    class="temii-admin-menu-tree"
     node-key="id"
     default-expand-all
     highlight-current
@@ -13,9 +13,9 @@
     @check="onCheck"
     @check-change="onCheckChange"
   >
-    <div class="nm-menu-tree-node" slot-scope="{ node, data }">
-      <div class="nm-menu-tree-node-label">
-        <nm-icon v-if="showIcon" :name="data.menu.icon"/>
+    <div class="temii-menu-tree-node" slot-scope="{ node, data }">
+      <div class="temii-menu-tree-node-label">
+        <temii-icon v-if="showIcon" :name="data.menu.icon"/>
         {{ node.label }}
       </div>
     </div>
@@ -181,7 +181,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.nm-admin-menu-tree {
+.temii-admin-menu-tree {
   &-node {
     position: relative;
     display: flex;
