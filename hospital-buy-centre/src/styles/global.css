@@ -1,0 +1,89 @@
+.container{
+  height:100%;
+  position:relative;
+  padding-bottom:40px;
+}
+
+.container >>> .el-input.is-disabled .el-input__inner{
+  color:#666666;
+}
+
+
+.container .top_controller{
+  overflow:hidden
+}
+
+.container .top_controller .btn-g{
+  float:right
+}
+
+.container .filter-container{
+  float:left
+}
+
+.container .comTitle{
+  overflow : hidden;
+  border-bottom :1px solid #cccccc;
+  height:40px;
+  line-height:40px;
+  margin-bottom:10px;
+}
+
+.comCon{
+  overflow:hidden;
+  margin-bottom:20px;
+}
+
+.comCon .comTitle .sort{
+  border:1px solid #cccccc;
+  display:inline-block;
+  width:20px;
+  height:20px;
+  line-height:20px;
+  text-align:center;
+  border-radius:100%;
+  margin-right:6px;
+}
+
+.comCon .info{
+  float:left;
+  width:50%;
+}
+
+.comCon .info .infoTitle{
+  width:106px;
+  text-align:right;
+  line-height:40px;
+}
+
+.comCon .info .el-input{
+  flex:1;
+}
+
+.comCon .infoRow{
+  float:left;
+  width:100%;
+}
+
+.comCon .infoRow .infoTitle{
+  width:106px;
+  text-align:right;
+  line-height:40px;
+}
+
+
+.redColor{
+  color:red;
+}
+
+.comCon .infoRow .el-input{
+  flex:1;
+}
+
+.container .footerBtn{
+  position:absolute;
+  height:40px;
+  bottom:0px;
+  right:0px;
+}
+
